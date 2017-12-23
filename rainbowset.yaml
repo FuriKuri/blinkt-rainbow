@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: rainbow
+  namespace: default
+  labels:
+    k8s-app: rainbow
+spec:
+  selector:
+    matchLabels:
+      name: rainbow
+  template:
+    metadata:
+      labels:
+        name: rainbow
+    spec:
+      tolerations:
+      - key: node-role.kubernetes.io/master
+        effect: NoSchedule
+      containers:
+      - name: rainbow
+        image: furikuri/blinkt-rainbow
+        securityContext:
+          privileged: true
