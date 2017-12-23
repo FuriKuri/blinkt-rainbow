@@ -2,7 +2,7 @@
 
 import colorsys
 import time
-
+import signal
 import blinkt
 
 class GracefulKiller:
