@@ -8,7 +8,7 @@ spacing = 360.0 / 16.0
 hue = 0
 
 blinkt.set_clear_on_exit()
-blinkt.set_brightness(0.1)
+blinkt.set_brightness(0.035)
 
 while True:
   hue = int(time.time() * 100) % 360
