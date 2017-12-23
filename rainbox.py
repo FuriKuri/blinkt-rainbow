@@ -2,17 +2,7 @@
 
 import colorsys
 import time
-import signal
 import blinkt
-
-class GracefulKiller:
-  kill_now = False
-  def __init__(self):
-    signal.signal(signal.SIGINT, self.exit_gracefully)
-    signal.signal(signal.SIGTERM, self.exit_gracefully)
-
-  def exit_gracefully(self,signum, frame):
-    self.kill_now = True
 
 spacing = 360.0 / 16.0
 hue = 0
@@ -32,6 +22,3 @@ while True:
 
   blinkt.show()
   time.sleep(0.001)
-  if killer.kill_now:
-    blinkt.clear()
-    break
